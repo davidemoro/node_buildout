@@ -16,7 +16,7 @@ Create a python virtualenv
 
 Bootstrap the buildout
 
-    $ bin/python bootstrap.py
+    $ ./bin/python bootstrap.py
 
 Launch the buildout script: it will install node, the af gem script, gem, express.
 
@@ -33,11 +33,12 @@ Add an application
 ------------------
 
 You can configure the buildout cloning a for example 'myapp' git repo. Configure the sources section of buildout.cfg
-and re-runa the buildout script.
+and re-run the buildout script.
 
 Alternatively create a new one from scratch with express:
 
-    $ ./bin/express express --sessions --css stylus --ejs myapp
+    $ cd src
+    $ ../bin/express express --sessions --css stylus --ejs myapp
 
 See more details on http://expressjs.com/guide.html#executable
 
@@ -47,7 +48,8 @@ Install the dependencies of your app
 
 Install the dependencies
 
-    $ ./bin/npm install src/myapp
+    $ cd myapp
+    $ ../../bin/npm install
 
 
 Run your application
@@ -55,16 +57,19 @@ Run your application
 
 Command:
 
-    $ ./bin/node src/myapp app
+    $ ../../bin/node app
+    Express server listening on port 3000
 
 
 Deploy your application at @appfog
 ----------------------------------
 
 Create an account at http://appfog.com.
+appfog is a PaaS that let you deploy fast, scalable, and reliable applications to the cloud in seconds.
 
 Login with:
 
+    $ cd node_mongo_buildout
     $ ./bin/af login
 
 Finally from within your source code directory:
